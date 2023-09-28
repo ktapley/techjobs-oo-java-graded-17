@@ -88,4 +88,18 @@ public class Job {
     public int getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        String newline = System.lineSeparator();
+
+        return newline + "ID: " + this.getId() +
+                newline + "Name: " + this.getName() +
+                newline + "Employer: " + this.getEmployer() +
+                newline + "Location: " + this.getLocation() +
+                newline + "Position Type: " + this.getPositionType() +
+                newline + "Core Competency: " + this.getCoreCompetency() + newline;
+    }
+// Use ternary operator for task 5, test 3?? ex.(goldStatus ? " Gold" : "Standard")?
+// Use Try/Catch to throw "Data not available" if field is empty?
 }

@@ -8,7 +8,7 @@ public class JobTest {
     //TODO: Create your unit tests here
 
     @Test
-    public void testSettingJobID() {
+    public void testSettingJobId() {
         Job jobTest1 = new Job();
         Job jobTest2 = new Job();
         assertNotEquals(jobTest1.getId(), jobTest2.getId());
@@ -31,7 +31,7 @@ public class JobTest {
     }
 
     @Test
-    public void testJobsForEquality(){
+    public void testJobsForEquality() {
         Employer employer = new Employer("ACME");
         Location location = new Location("Desert");
         PositionType positionType = new PositionType("Quality control");
@@ -41,9 +41,37 @@ public class JobTest {
 
         assertNotEquals(identicalObjectOne, identicalObjectTwo);
     }
-}
 
-// Use assertTrue and assertEquals statements to test that the constructor correctly assigns both the class and value of each field.
-// Your test should have 5 assert statements of each type.
-//The instanceof keyword can be used to check the class of an object. The result of the comparison is a boolean.
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job toStringNewLine = new Job();
+        String expected = toStringNewLine.toString();
+        assertTrue(expected.startsWith(System.lineSeparator()));
+        assertTrue(expected.endsWith(System.lineSeparator()));
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Employer employer = new Employer("ACME");
+        Location location = new Location("Desert");
+        PositionType positionType = new PositionType("Quality control");
+        CoreCompetency coreCompetency = new CoreCompetency("Persistence");
+        Job toStringTestJob = new Job("Product tester", employer, location, positionType, coreCompetency);
+
+        String expected = System.lineSeparator() + "ID: " + toStringTestJob.getId()
+                + System.lineSeparator() + "Name: " + toStringTestJob.getName()
+                + System.lineSeparator() + "Employer: " + toStringTestJob.getEmployer()
+                + System.lineSeparator() + "Location: " + toStringTestJob.getLocation()
+                + System.lineSeparator() + "Position Type: " + toStringTestJob.getPositionType()
+                + System.lineSeparator() + "Core Competency: " + toStringTestJob.getCoreCompetency()
+                + System.lineSeparator();
+        assertEquals(expected, toStringTestJob.toString());
+    }
+
+//    @Test
+//    public void testToStringHandlesEmptyField() {
+//
+//    }
+
+}
 
