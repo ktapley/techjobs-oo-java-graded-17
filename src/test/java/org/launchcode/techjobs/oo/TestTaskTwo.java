@@ -47,7 +47,7 @@ public class TestTaskTwo extends AbstractTest {
         Class locationClass = getClassByName("Location");
         Constructor secondConstructor = locationClass.getConstructor(String.class);
         Location loc = (Location) secondConstructor.newInstance("a location");
-        assertTrue(loc.getId() > 0);
+        assertTrue( loc.getId() > 0);
     }
 
     @Test
@@ -92,7 +92,7 @@ public class TestTaskTwo extends AbstractTest {
 
     @Test
     public void testPositionTypeToStringMethod()  {
-        String aValue = "a position type";
+        String aValue = "JobField{value='a position type'}";
         PositionType positionType = new PositionType(aValue);
         assertEquals(aValue, positionType.toString());
     }

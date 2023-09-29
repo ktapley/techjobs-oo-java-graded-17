@@ -2,6 +2,9 @@ package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import static org.junit.Assert.*;
 
 public class JobTest {
@@ -27,7 +30,6 @@ public class JobTest {
         assertEquals(location, testConstructorFields1.getLocation());
         assertEquals(positionType, testConstructorFields1.getPositionType());
         assertEquals(coreCompetency, testConstructorFields1.getCoreCompetency());
-
     }
 
     @Test
@@ -44,7 +46,11 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
-        Job toStringNewLine = new Job();
+        Employer employer = new Employer("ACME");
+        Location location = new Location("StL");
+        PositionType positionType = new PositionType("Quality control");
+        CoreCompetency coreCompetency = new CoreCompetency("Java");
+        Job toStringNewLine = new Job("Web Developer", employer, location, positionType, coreCompetency);
         String expected = toStringNewLine.toString();
         assertTrue(expected.startsWith(System.lineSeparator()));
         assertTrue(expected.endsWith(System.lineSeparator()));
@@ -68,10 +74,17 @@ public class JobTest {
         assertEquals(expected, toStringTestJob.toString());
     }
 
-//    @Test
-//    public void testToStringHandlesEmptyField() {
-//
-//    }
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Employer employer = new Employer("");
+        Location location = new Location("StL");
+        PositionType positionType = new PositionType("");
+        CoreCompetency coreCompetency = new CoreCompetency("Java");
+        Job job = new Job("Web Developer", employer, location, positionType, coreCompetency);
+        String expected = job.toString();
+        assertEquals(expected, job.toString());
+    }
+
 
 }
 

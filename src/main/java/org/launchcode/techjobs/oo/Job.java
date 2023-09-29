@@ -21,8 +21,7 @@ public class Job {
         nextId++;
     }
 
-    public Job(String name, Employer employer, Location location, PositionType positionType,
-               CoreCompetency coreCompetency) {
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
         this.employer = employer;
@@ -31,8 +30,7 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
+// TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
     @Override
@@ -91,15 +89,15 @@ public class Job {
 
     @Override
     public String toString() {
-        String newline = System.lineSeparator();
+//        String newline = System.lineSeparator();
 
-        return newline + "ID: " + this.getId() +
-                newline + "Name: " + this.getName() +
-                newline + "Employer: " + this.getEmployer() +
-                newline + "Location: " + this.getLocation() +
-                newline + "Position Type: " + this.getPositionType() +
-                newline + "Core Competency: " + this.getCoreCompetency() + newline;
+        return System.lineSeparator() + "ID: " + this.getId() +
+                System.lineSeparator() + "Name: " + this.getName() +
+                System.lineSeparator() + "Employer: " + (this.getEmployer().getValue() == "" ? "Data not available" : this.getEmployer()) +
+                System.lineSeparator() + "Location: " + (this.getLocation().getValue() == "" ? "Data not available" : this.getLocation()) +
+                System.lineSeparator() + "Position Type: " + (this.getPositionType().getValue() == "" ? "Data not available" :
+                this.getPositionType()) +
+                System.lineSeparator() + "Core Competency: " + (this.getCoreCompetency().getValue() == "" ? "Data not available" :
+                this.getCoreCompetency()) + System.lineSeparator();
     }
-// Use ternary operator for task 5, test 3?? ex.(goldStatus ? " Gold" : "Standard")?
-// Use Try/Catch to throw "Data not available" if field is empty?
 }
