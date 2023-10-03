@@ -92,7 +92,7 @@ public class Job {
 //        String newline = System.lineSeparator();
 
         return System.lineSeparator() + "ID: " + this.getId() +
-                System.lineSeparator() + "Name: " + this.getName() +
+                System.lineSeparator() + "Name: " + (this.getName() == "" ? "Data not available" : this.getName()) +
                 System.lineSeparator() + "Employer: " + (this.getEmployer().getValue() == "" ? "Data not available" : this.getEmployer()) +
                 System.lineSeparator() + "Location: " + (this.getLocation().getValue() == "" ? "Data not available" : this.getLocation()) +
                 System.lineSeparator() + "Position Type: " + (this.getPositionType().getValue() == "" ? "Data not available" :
